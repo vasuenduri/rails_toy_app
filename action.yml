@@ -15,7 +15,6 @@ inputs:
   IMAGE_TAG: 
     description: "Image Tag"
     required: false
-
 runs:
   using: "composite"
   steps:
@@ -26,6 +25,7 @@ runs:
         cache: 'pip'
 
     - name: Install dependencies Including Ansible
+      shell: bash
       run: |
         echo ${{ inputs.GHE_OIDC_ROLE }}
         python -m pip install --upgrade pip
